@@ -1,0 +1,32 @@
+﻿//Projects with mani//
+//Arduino Intruder Security Alert System using Vibration Sensor
+
+
+int Buzz = 4; //Buzzer
+int LED = 5;  //LED
+int vs =3; // vibration sensor
+int i=0;
+void setup(){
+  pinMode(Buzz, OUTPUT);
+  pinMode(LED, OUTPUT);
+  pinMode(vs, INPUT); 
+}
+void loop(){
+int vib = digitalRead(vs);
+  if(vib == HIGH)
+  {
+    for(i=0;i<10;i++)
+    {
+    digitalWrite(Buzz, HIGH);
+    digitalWrite(LED, HIGH);
+    delay(500);
+    digitalWrite(Buzz, LOW); 
+    digitalWrite(LED, LOW); 
+    delay(100);
+  }
+  }
+  else{
+    digitalWrite(Buzz, LOW);
+    digitalWrite(LED, LOW); 
+  }
+}
